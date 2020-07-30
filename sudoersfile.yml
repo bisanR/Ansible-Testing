@@ -1,0 +1,10 @@
+---
+  - hosts: prod
+    become: yes
+    tasks:
+    - name: add user tomcat to sudoers file
+      lineinfile:
+        path: /etc/sudoers
+        insertafter: 'root    ALL=(ALL)       ALL'
+        line: 'tomcat  ALL=(ALL)       ALL'
+

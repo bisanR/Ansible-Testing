@@ -1,0 +1,16 @@
+---
+  - hosts: prod
+    become: yes
+    tasks:
+    - name: create a group name tomcat
+      group:
+        name: tomcat
+        state: present
+    - name: create a user name tomcat
+      user:
+        name: tomcat
+        password: tomcat
+        comment: tomcat user creation and password for user
+        group: tomcat
+        state: present
+    

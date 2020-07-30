@@ -1,0 +1,15 @@
+---
+  - hosts: prod
+    become: yes
+    vars:
+      username:
+        - Test1
+        - Test2
+        - Test3
+    tasks:
+      - name: create variable users
+        user:
+          name: '{{ item }}'
+          comment: creating 3 users using varibles
+          state: present
+        loop: '{{ username }}'
